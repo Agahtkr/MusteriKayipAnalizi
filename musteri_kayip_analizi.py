@@ -45,12 +45,12 @@ numerical_df = data.select_dtypes(include=['number'])
 
 correlation_matrix = numerical_df.corr()
 
-print(correlation_matrix) # Bu ne işe yaradı
+print(correlation_matrix)
  
 X = dt.drop('MonthlyCharges', axis=1)
 y = dt['MonthlyCharges']
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42) # Bunun da ne işe yaradığını anlamadım
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42) # Bunun ne işe yaradığını anlamadım
 
 plt.figure(figsize=(10,6))
 plt.scatter(data.index, data['MonthlyCharges'])
