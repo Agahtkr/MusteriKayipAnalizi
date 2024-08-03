@@ -22,11 +22,6 @@ data['Churn'] = data['Churn'].map({'Yes': True, 'No': False})
 print(data.dtypes)
 
 
-
-
-#print(data.head())
-print(data.dtypes)
-
 data.boxplot(column='MonthlyCharges')
 plt.show()
 
@@ -41,7 +36,7 @@ print(dt)
 
 #data = pd.get_dummies(data, columns=['MonthlyCharges'])
 scaler = StandardScaler()
-data[['MonthlyCharges']] = scaler.fit_transform(data[['MonthlyCharges']]) 
+dt[['MonthlyCharges']] = scaler.fit_transform(dt[['MonthlyCharges']]) 
 data[['tenure']] = scaler.fit_transform(data[['tenure']])
 data[['TotalCharges']] = scaler.fit_transform(data[['TotalCharges']])
 data[['SeniorCitizen']] = scaler.fit_transform(data[['SeniorCitizen']])
@@ -52,8 +47,8 @@ correlation_matrix = numerical_df.corr()
 
 print(correlation_matrix) # Bu ne işe yaradı
  
-X = data.drop('MonthlyCharges', axis=1)
-y = data['MonthlyCharges']
+X = dt.drop('MonthlyCharges', axis=1)
+y = dt['MonthlyCharges']
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42) # Bunun da ne işe yaradığını anlamadım
 
