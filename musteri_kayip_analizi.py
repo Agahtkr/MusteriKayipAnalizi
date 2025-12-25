@@ -50,7 +50,7 @@ print(correlation_matrix)
 X = dt.drop('MonthlyCharges', axis=1)
 y = dt['MonthlyCharges']
 
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42) # Bunun ne işe yaradığını anlamadım
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 plt.figure(figsize=(10,6))
 plt.scatter(data.index, data['MonthlyCharges'])
@@ -79,17 +79,16 @@ print("\nTest Özellikleri:")
 print(X_test)
 
 
-model = LogisticRegression(max_iter=1000) # Bununla 
+model = LogisticRegression(max_iter=1000)
 model.fit(X_train, y_train)
 
 
-#model = LogisticRegression(random_state=42) - Bunun farkı ne
+#model = LogisticRegression(random_state=42)
 #model.fit(X_train, y_train)
 
 y_pred = model.predict(X_test)
 
 
-# Model doğru veya yanlış tahmin yaptığımızı nereden biliyor
 print("Confusion Matrix:")
 print(confusion_matrix(y_test, y_pred))
 
@@ -103,3 +102,4 @@ print("\nModel Intercept:")
 print(model.intercept_)
 
 print("XGBoost")
+
